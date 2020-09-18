@@ -27,6 +27,8 @@ def max_wind_speed(hurricane_filename):
     return biggest
 
 def contains_word(word, review):
+    
+
     """
     Determines whether the review contains the given word. 
 
@@ -41,8 +43,13 @@ def contains_word(word, review):
     (type: boolean) True if word is contained in the review, and false
     otherwise.
     """
-
-    pass # replace this line with your implementation of this function
+    my_str = review
+    lowered_str = my_str.lower()
+    if word in lowered_str:
+        return True
+    else:
+        return False
+    
 
 
 def test_max_wind_speed():
