@@ -15,8 +15,16 @@ def max_wind_speed(hurricane_filename):
     (type: int) The maximum wind speed of the hurricane.
     """
 
-    pass # replace this line with your implementation of this function
-
+   
+    f = open(hurricane_filename, 'r')
+    biggest = 0
+    for line in f:
+        vals = line.split(',')
+        size = int(vals[4])
+        if size > biggest:
+            biggest = size
+      
+    return biggest
 
 def contains_word(word, review):
     """
@@ -38,8 +46,28 @@ def contains_word(word, review):
 
 
 def test_max_wind_speed():
-    """ Function that tests the max_wind_speed function. """
+    max_wind = max_wind_speed("florence.csv") 
+    if max_wind == 140:
+        print("max_wind_speed(florence.csv) PASSED")
+    else:
+        print("max_wind_speed(florence.csv) FAILED")
 
+    max_wind = max_wind_speed("irma.csv") 
+    if max_wind == 185:
+        print("max_wind_speed(irma.csv) PASSED")
+    else:
+        print("max_wind_speed(irma.csv) FAILED")
+    
+    max_wind = max_wind_speed("dorian.csv") 
+    if max_wind == 185:
+        print("max_wind_speed(dorian.csv) PASSED")
+    else:
+        print("max_wind_speed(dorian.csv) FAILED")
+        
+    
+
+    """ Function that tests the max_wind_speed function. """
+    
     print("Starting test of max_wind_speed")
 
     # To Do: Call your max_wind_speed function on the irma.csv file, using an if
